@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp.Views.Settings"
+             xmlns:Views="clr-namespace:TestApp.Views"
+             Title="Paramètres Content">
+    <ContentPage.Content>
+        <TableView Intent="Settings" Margin="5" HasUnevenRows="True">
+            <TableRoot Title="Paramètres Root" >
+                <TableSection Title="Wifi">
+                    <EntryCell Label="Nom du wifi" Placeholder="CAMBOX_MKV3" Completed="OnCompleted" Keyboard="Text"/>
+                    <EntryCell Label="Mot de passe du wifi"  Placeholder="12345678" Keyboard="Text"/>
+                </TableSection>
+                <TableSection Title="Capteur">
+                    <ViewCell Height="20">
+                        <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label BindingContext="{x:Reference Name=exposure}" 
+                               Text="{Binding Path=Value, StringFormat='Exposition de {0:F0}'}"
+                              TextColor="#f35e20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Slider x:Name="exposure" Minimum="-2" Maximum="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <Views:PickerCell Label="Balance des Blancs" >
+                        <x:String>Auto</x:String>
+                        <x:String>Nuageux</x:String>
+                        <x:String>Thungstène</x:String>
+                        <x:String>Fluorescent</x:String>
+                        <x:String>Jour</x:String>
+                    </Views:PickerCell>
+                    <ViewCell>
+                        <Picker Title="Balance des blancs" HorizontalOptions="Start" Margin="10">
+                            <Picker.Items>
+                                <x:String>Auto</x:String>
+                                <x:String>Nuageux</x:String>
+                                <x:String>Thungstène</x:String>
+                                <x:String>Fluorescent</x:String>
+                                <x:String>Jour</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Vidéo">
+                    <ViewCell>
+                        <Picker Title="Résolution vidéo" HorizontalOptions="Start" Margin="10,0,0,0">
+                            <Picker.Items>
+                                <x:String>1080</x:String>
+                                <x:String>720</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                    <ViewCell>
+                        <Picker Title="Durée des fichiers" HorizontalOptions="Start" Margin="10,0,0,0">
+                            <Picker.Items>
+                                <x:String>5 min</x:String>
+                                <x:String>10min</x:String>
+                                <x:String>15min</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                    <ViewCell>
+                        <Picker Title="Volume Audio" HorizontalOptions="Start" Margin="10,0,0,0">
+                            <Picker.Items>
+                                <x:String>Off</x:String>
+                                <x:String>Minimum</x:String>
+                                <x:String>Moyen</x:String>
+                                <x:String>Maximum</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                    <SwitchCell Text="Afficher l'heure ?" On="False"/>
+                </TableSection>
+                <TableSection Title="Photos" >
+                    <ViewCell>
+                        <Picker Title="Résolution Photo" HorizontalOptions="Start" Margin="10,0,0,0">
+                            <Picker.Items>
+                                <x:String>8m</x:String>
+                                <x:String>12M</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                    <ViewCell>
+                        <Picker Title="Mode Rafale" HorizontalOptions="Start" Margin="10,0,0,0">
+                            <Picker.Items>
+                                <x:String>1 photo</x:String>
+                                <x:String>2 photos</x:String>
+                                <x:String>3 photos</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Caméra">
+                    <ViewCell>
+                        <Picker Title="Exctinction automatique" HorizontalOptions="Start" Margin="10,0,0,0">
+                            <Picker.Items>
+                                <x:String>Off</x:String>
+                                <x:String>3 mins</x:String>
+                                <x:String>5 mins</x:String>
+                                <x:String>10 mins</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </ViewCell>
+                    <ViewCell>
+                        <Button Text="Mettre l'heure à jour" HorizontalOptions="End"/>
+                    </ViewCell>
+                    <ViewCell>
+                        <Button Text="Formater la carte SD" HorizontalOptions="End"/>
+                    </ViewCell>
+                    <ViewCell>
+                        <Button Text="Restaurer les paramètres par défaut" HorizontalOptions="End"/>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestApp.Views.ThemeSelectPage"
+             xmlns:local="clr-namespace:TestApp"
+             xmlns:vm="clr-namespace:TestApp.ViewModels;"
+             >
+    <ContentPage.BindingContext>
+        <vm:ThemeSelectViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Label FontSize="30"
+                  Text="CHOISSISEZ VOTRE UNIVERS CAMBOX !"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Start"
+                   Margin="10"
+                  />
+            <BoxView 
+                BackgroundColor="Black"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="1"
+                />
+            <Frame
+                BackgroundColor="#CD0000"
+                Padding="1"
+                HorizontalOptions="Center"
+                HasShadow="False"
+                VerticalOptions="CenterAndExpand">
+                <Frame
+                    Padding="40, 20"
+                    BackgroundColor="White"
+                    OutlineColor="#CD0000"
+                    HasShadow="false"
+                    CornerRadius="0"
+                
+                    >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding ThemeSelectCommand}" 
+                            CommandParameter="{x:Static local:Theme.Meca}" />
+                    </Frame.GestureRecognizers>
+                    <Label FontSize="Large" Text="Cambox Meca" TextColor="#CD0000" 
+                           VerticalOptions="StartAndExpand"
+                           />
+                </Frame>
+            </Frame>
+            <Frame
+                BackgroundColor="#0099FF"
+                Padding="1"
+                HorizontalOptions="Center"
+                HasShadow="False"
+                VerticalOptions="CenterAndExpand">
+                <Frame
+                Padding="40, 20"
+                BackgroundColor="White"
+                OutlineColor="#0099FF"
+                HasShadow="False"
+                CornerRadius="0"
+                >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding ThemeSelectCommand}" 
+                            CommandParameter="{x:Static local:Theme.Horse}" />
+                    </Frame.GestureRecognizers>
+                    <Label FontSize="Large" Text="Cambox Horse" TextColor="#0099FF" 
+                       VerticalOptions="StartAndExpand"
+                       />
+                </Frame>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
