@@ -35,7 +35,8 @@ namespace TestApp
 		}
         public void StartMainPage()
         {
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new Settings();
         }
 	}
     public enum Theme

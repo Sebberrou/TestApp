@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestApp.Views.ItemsPage"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
@@ -9,25 +10,22 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ItemsListView" 
+            <flv:FlowListView x:Name="ItemsListView" 
                 ItemsSource="{Binding Items}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadItemsCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                 CachingStrategy="RecycleElement"
-                 ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
+                 ItemSelected="OnItemSelected"
+                  
+                 >
+                <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
-                        
                         <ViewCell>
-                            <ViewCell.ContextActions>
+                            <!--<ViewCell.ContextActions>
                                 <MenuItem Clicked="OnDownload" CommandParameter="{Binding .}"
                                     Text="Download" />
                                 <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
                                     Text="Delete" IsDestructive="True" />
-                            </ViewCell.ContextActions>
+                            </ViewCell.ContextActions>-->
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Text}" 
                        LineBreakMode="NoWrap" 
@@ -40,8 +38,8 @@
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

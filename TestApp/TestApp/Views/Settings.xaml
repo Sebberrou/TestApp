@@ -3,33 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestApp.Views.Settings"
              xmlns:Views="clr-namespace:TestApp.Views"
-             Title="Paramètres Content">
+             Title="Paramètres Content"
+             >
     <ContentPage.Content>
         <TableView Intent="Settings" Margin="5" HasUnevenRows="True">
             <TableRoot Title="Paramètres Root" >
                 <TableSection Title="Section 1">
                     <EntryCell Label="Nom1" Placeholder="Nom1 example" Completed="OnCompleted" Keyboard="Text"/>
-                    <EntryCell Label="Nom2"  Placeholder="Nom2 example" Keyboard="Text"/>
+                    <EntryCell Height="80" Label="Nom2"  Placeholder="Nom2 example" Keyboard="Text"/>
                 </TableSection>
                 <TableSection Title="Section 2">
-                    <ViewCell Height="40">
-                        <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label BindingContext="{x:Reference Name=exposure}" 
-                               Text="{Binding Path=Value, StringFormat='Valeur numérique : {0:F0}'}"
-                              TextColor="#f35e20" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            <Slider x:Name="exposure" Minimum="-2" Maximum="2" Value="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                        <ViewCell Height="40">
+                            <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label BindingContext="{x:Reference Name=exposure}" 
+                                   Text="{Binding Path=Value, StringFormat='Valeur numérique : {0:F0}'}"
+                                  TextColor="#f35e20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Slider x:Name="exposure" Minimum="-2" Maximum="2" Value="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell Height="80">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Résolution" Margin="10,0" VerticalOptions="Center"/>
+                            <Picker ItemsSource="{Binding Param1.Values}" ItemDisplayBinding="{Binding Name}"
+                                    SelectedItem="{Binding Param1Value}" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+
                         </StackLayout>
-                    </ViewCell>
-                    <Views:PickerCell Label="Picker1" SelectedValue="Bleu" >
-                        <x:String>Rouge</x:String>
-                        <x:String>Bleu</x:String>
-                        <x:String>Jaune</x:String>
-                        <x:String>Violet</x:String>
-                        <x:String>Noir</x:String>
-                    </Views:PickerCell>
+                                
+                        </ViewCell>
                 </TableSection>
-                <TableSection Title="Autre" >
-                    <SwitchCell Text="Choix Binaire" On="False"/>
+                <TableSection Title="Autre">
+                        <SwitchCell Height="40" Text="Choix Binaire" On="False"/>
                 </TableSection>
                 <TableSection Title="Fin">
                     <ViewCell>

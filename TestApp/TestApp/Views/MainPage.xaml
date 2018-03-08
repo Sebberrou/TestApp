@@ -4,30 +4,14 @@
             xmlns:views="clr-namespace:TestApp.Views"
             x:Class="TestApp.Views.MainPage">
     <TabbedPage.Children>
-        <NavigationPage Title="Browse">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
+        <NavigationPage Title="Paramètres">
             <x:Arguments>
                 <views:ItemsPage />
             </x:Arguments>
         </NavigationPage>
-        
-        <NavigationPage Title="About">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_about.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
+        <NavigationPage Title="Download">
             <x:Arguments>
-                <views:AboutPage />
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="Paramètres">
-            <x:Arguments>
-                <views:Settings />
+                <views:Download />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>

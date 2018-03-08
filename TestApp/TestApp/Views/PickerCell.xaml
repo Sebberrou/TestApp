@@ -15,7 +15,9 @@
                     Title="{Binding Title}"
                     VerticalOptions="Center"
                     HorizontalOptions="FillAndExpand"
-                    SelectedIndexChanged="OnPickerSelectedIndexChanged" />
+                    SelectedIndexChanged="OnPickerSelectedIndexChanged"
+                    ItemsSource="{Binding ItemsSource}"
+                    />
 
         </StackLayout>
     </ViewCell.View>
